@@ -19,10 +19,10 @@
             foreach (var items in Model)
             {
                 <tr>
-                    <td>@items.Part_Number</td>
-                    <td>@items.Description</td>
+                    <td>@items.Part_Number.ToUpper()</td>                    
+                    <td>@items.Description.ToUpper()</td>
                     <td>@items.Quantity</td>
-                    <td>@items.Supplier</td>
+                    <td>@items.Supplier?.ToUpper()</td>
                 </tr>
             }
         }
