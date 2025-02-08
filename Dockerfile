@@ -1,18 +1,14 @@
-﻿# Imagen base de ASP.NET Core para ejecutar la aplicación
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 
-# Imagen base de .NET SDK para compilar la aplicación
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
+COPY ["Inventory.csproj", "./"]
+RUN dotnet restore "./Inventory.csproj"
 COPY . .
-RUN dotnet restore
-RUN dotnet publish -c Release -o /app
+RUN dotnet publish "./Inventory.csproj" -c Release -o /app/publish
 
-# Copia los archivos compilados en la imagen final
 FROM base AS final
 WORKDIR /app
-COPY --from=build /app .
-ENTRYPOINT ["dotnet", "Inventory.dll"]
+COPY --from=build /app/publish .
+CMD ["dotnet", "Inventory.dll"]
