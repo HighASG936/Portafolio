@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Inventory";
+}
+
+@model List<Device>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Part Number</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Supplier</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var items in Model)
+            {
+                <tr>
+                    <td>@items.Part_Number</td>
+                    <td>@items.Description</td>
+                    <td>@items.Quantity</td>
+                    <td>@items.Supplier</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
