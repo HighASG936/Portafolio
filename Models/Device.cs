@@ -1,4 +1,4 @@
-﻿namespace CursoMVC.Models
+﻿namespace Inventory.Models
 {
     public class Device
     {

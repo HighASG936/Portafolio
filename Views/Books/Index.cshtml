@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Personal library";
+}
+
+@model List<Book>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Cover</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            foreach (var items in Model)
+            {
+                <tr>
+                    <td>@items.Title.ToUpper()</td>
+                    <td>@items.Author.ToUpper()</td>
+                    <td>@items.Cover</td>
+                    <td>@items.Description?.ToUpper()</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
