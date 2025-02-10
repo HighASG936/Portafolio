@@ -3,10 +3,10 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["Inventory.csproj", "./"]
-RUN dotnet restore "./Inventory.csproj"
+COPY ["Portafolio.csproj", "./"]
+RUN dotnet restore "./Portafolio.csproj"
 COPY . .
-RUN dotnet publish "./Inventory.csproj" -c Release -o /app/publish
+RUN dotnet publish "./Portafolio.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
