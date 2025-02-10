@@ -11,4 +11,4 @@ RUN dotnet publish "./Inventory.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
-CMD ["dotnet", "Inventory.dll"]
+CMD ["dotnet", "Portafolio.dll"]
