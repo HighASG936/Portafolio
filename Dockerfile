@@ -8,6 +8,13 @@ RUN dotnet restore "./Portafolio.csproj"
 COPY . .
 RUN dotnet publish "./Portafolio.csproj" -c Release -o /app/publish
 
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+COPY --from=build /src/wwwroot ./wwwroot
+RUN chmod -R 755 /app/wwwroot
+
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
