@@ -8,9 +8,6 @@ RUN dotnet restore "./Portafolio.csproj"
 COPY . .
 RUN dotnet publish "./Portafolio.csproj" -c Release -o /app/publish
 
-WORKDIR /app
-VOLUME /app/wwwroot/images
-
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
