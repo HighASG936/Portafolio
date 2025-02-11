@@ -27,9 +27,15 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+    );
 
 var imagePath = Environment.GetEnvironmentVariable("IMAGE_STORAGE_PATH") ?? "/app/wwwroot/images";
+
+if (!Directory.Exists(imagePath))
+{
+    Directory.CreateDirectory(imagePath);
+}
 
 app.UseStaticFiles(new StaticFileOptions
 {
