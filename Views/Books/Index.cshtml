@@ -4,7 +4,36 @@
 
 @model List<Book>
 
-<table class="table table-striped">
+<div>
+    <h1 style=" text-align:center">
+        Personal library
+    </h1>
+    <br />
+</div>
+
+<div class="d-grid gap-3" style="grid-template-columns: repeat(8, 100px); grid-template-rows: repeat(3, 300px);">
+    @if (Model != null)
+    {
+        foreach (var items in Model)
+        {
+            <div>
+                <img src="/images/default-cover.jpg" alt="" width="100">
+                <p class="small">@items.Title.ToUpper()</p>
+            </div>
+            @* <tr> *@
+            @*     <td>@items.Title.ToUpper()</td> *@
+            @*     <td>@items.Author.ToUpper()</td> *@
+            @*     <td><img src="/images/default-cover.jpg" alt="" width="100"></td> *@
+            @*     <td>@items.Description?.ToUpper()</td> *@
+            @* </tr> *@
+        }
+    }
+</div>
+
+
+
+
+@* <table class="table table-striped">
     <thead>
         <tr>
             <th>Title</th>
@@ -27,6 +56,6 @@
             }
         }
     </tbody>
-</table>
+</table> *@
 
 <h1>@Environment.GetEnvironmentVariable("IMAGE_STORAGE_PATH")</h1>
