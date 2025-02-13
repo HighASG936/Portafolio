@@ -9,10 +9,11 @@
         .grid-books
         {
             display: grid;
-            grid-template-columns: repeat(8, 100px);
+            grid-template-columns: repeat(8, 10%);
             grid-template-rows: repeat(3, auto);
             grid-gap: 30px;
             grid:fit-content();
+            width: 100%;
         }
 
         h1
@@ -28,34 +29,43 @@
             align-content: center;
         }
 
+        div, img
+        {
+            width: 100%;
+        }
+
     </style>
 
-<div class="start-0">
-    <img src="/images/lib_banner.jpg">
-    <h1>Personal library</h1>
-    <br/>
-</div>
 
-<div>
-    <div class="grid-books">
-        @if (Model != null)
-        {
-            foreach (var items in Model)
+<div style="width: 80%">
+    <div>
+        <img src="/images/lib_banner.jpg">
+        <h1>Personal library</h1>
+        <br />
+    </div>
+
+    <div>
+        <div class="grid-books">
+            @if (Model != null)
             {
-                <div>
-                    <img src="/images/default-cover.jpg" alt="" width="100">
-                    <label>@items.Title.ToUpper()</label>
-                </div>
-                @* <tr> *@
-                @*     <td>@items.Title.ToUpper()</td> *@
-                @*     <td>@items.Author.ToUpper()</td> *@
-                @*     <td><img src="/images/default-cover.jpg" alt="" width="100"></td> *@
-                @*     <td>@items.Description?.ToUpper()</td> *@
-                @* </tr> *@
+                foreach (var items in Model)
+                {
+                    <div>
+                        <img src="/images/default-cover.jpg" alt="" style="width: 100%">
+                        <label>@items.Title.ToUpper()</label>
+                    </div>
+                    @* <tr> *@
+                    @*     <td>@items.Title.ToUpper()</td> *@
+                    @*     <td>@items.Author.ToUpper()</td> *@
+                    @*     <td><img src="/images/default-cover.jpg" alt="" width="100"></td> *@
+                    @*     <td>@items.Description?.ToUpper()</td> *@
+                    @* </tr> *@
+                }
             }
-        }
+        </div>
     </div>
 </div>
+
 
 
 
