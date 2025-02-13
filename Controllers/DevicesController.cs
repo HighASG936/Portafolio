@@ -1,31 +1,13 @@
-﻿using Inventory.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
+﻿using Microsoft.AspNetCore.Mvc;
+using Portafolio.Models;
+using Portafolio.Repository;
 
-namespace Inventory.Controllers 
+namespace Portafolio.Controllers
 {
-    public class DevicesController(HttpClient httpClient) : Controller
+    public class DevicesController(IRepository<Device> _device) : Controller
     {
-        private readonly HttpClient _httpClient = httpClient;
-        private static readonly JsonSerializerOptions _jsonOptions = new() 
-        { 
-            PropertyNameCaseInsensitive = true 
-        };
-
-        public async Task<IActionResult> Index()
-        {
-            string apiUrl = "https://devicesinventory-production.up.railway.app/api/Device";
-            List<Device> items = [];
-
-            HttpResponseMessage response = await _httpClient.GetAsync(apiUrl);
-            if (response.IsSuccessStatusCode)
-            {
-                string json = await response.Content.ReadAsStringAsync();
-                items = JsonSerializer.Deserialize<List<Device>>(json, _jsonOptions) ?? [];
-            }
-
-            return View(items);
-        }
+        public async Task<IActionResult> Index() =>
+            View(await _device.Get());
     }
 
 }

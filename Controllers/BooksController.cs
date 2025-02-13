@@ -1,31 +1,12 @@
-﻿using Inventory.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using System.Text.Json;
+﻿using Microsoft.AspNetCore.Mvc;
+using Portafolio.Models;
+using Portafolio.Repository;
 
-namespace Inventory.Controllers
+namespace Portafolio.Controllers
 {
-    public class BooksController(HttpClient httpClient) : Controller
+    public class BooksController(IRepository<Book> _book) : Controller
     {
-        private readonly HttpClient _httpClient = httpClient;
-        private static readonly JsonSerializerOptions _jsonOptions = new() 
-        { 
-            PropertyNameCaseInsensitive = true 
-        };
-
-        public async Task<IActionResult> Index()
-        {
-            string apiUrl = "https://apilibrary-production.up.railway.app/api/Book";
-            List<Book> items = [];
-
-            HttpResponseMessage response = await _httpClient.GetAsync(apiUrl);
-            if (response.IsSuccessStatusCode)
-            {
-                string json = await response.Content.ReadAsStringAsync();
-                items = JsonSerializer.Deserialize<List<Book>>(json, _jsonOptions) ?? [];
-            }
-
-            return View(items);
-        }
+        public async Task<IActionResult> Index() =>
+            View(await _book.Get());
     }
 }
