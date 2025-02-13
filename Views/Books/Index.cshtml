@@ -37,40 +37,36 @@
     </style>
 
 
-<div style="width: 80%">
-    <div>
-        <img src="/images/lib_banner.jpg">
-        <h1>Personal library</h1>
-        <br />
-    </div>
+<body style="background-color: papayawhip">
+    <div style="width: 80%">
+        <div>
+            <img src="/images/lib_banner.jpg">
+            <h1>Personal library</h1>
+            <br />
+        </div>
 
-    <div>
-        <div class="grid-books">
-            @if (Model != null)
-            {
-                foreach (var items in Model)
+        <div>
+            <div class="grid-books">
+                @if (Model != null)
                 {
-                    <div>
-                        <img src="/images/default-cover.jpg" alt="" style="width: 100%">
-                        <label>@items.Title.ToUpper()</label>
-                    </div>
-                    @* <tr> *@
-                    @*     <td>@items.Title.ToUpper()</td> *@
-                    @*     <td>@items.Author.ToUpper()</td> *@
-                    @*     <td><img src="/images/default-cover.jpg" alt="" width="100"></td> *@
-                    @*     <td>@items.Description?.ToUpper()</td> *@
-                    @* </tr> *@
+                    foreach (var items in Model)
+                    {
+                        <div>
+                            <img src="/images/default-cover.jpg" alt="" style="width: 100%">
+                            <label>@items.Title.ToUpper()</label>
+                        </div>
+                        @* <tr> *@
+                        @*     <td>@items.Title.ToUpper()</td> *@
+                        @*     <td>@items.Author.ToUpper()</td> *@
+                        @*     <td><img src="/images/default-cover.jpg" alt="" width="100"></td> *@
+                        @*     <td>@items.Description?.ToUpper()</td> *@
+                        @* </tr> *@
+                    }
                 }
-            }
+            </div>
         </div>
     </div>
-</div>
-
-
-
-
-
-
+</body>
 
 @* <table class="table table-striped">
     <thead>
