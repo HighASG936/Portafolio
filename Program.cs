@@ -1,4 +1,6 @@
 using Microsoft.Extensions.FileProviders;
+using Portafolio.Models;
+using Portafolio.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<IRepository<Book>, BooksRepository>();
+builder.Services.AddScoped<IRepository<Device>, DevicesRepository>();
 
 
 var app = builder.Build();
