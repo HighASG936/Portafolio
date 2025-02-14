@@ -40,6 +40,7 @@
             text-align: start;
             color: #fff9bd;
             gap: 10%;
+            margin-bottom: 25%;
         }
 
         a:hover 
@@ -54,7 +55,7 @@
 
         li
         {
-            height: 100%;
+            margin-bottom: 20%;
         }
         
     </style>
@@ -67,19 +68,22 @@
                         <img src="/images/home.svg" class="icon" />
                         Home
                     </a>
+                </li>
 
+                <li>
                     <a asp-controller="Books" asp-action="Index">
                         <img src="/images/book.svg" class="icon" />
                         Books
                     </a>
+                </li>
 
+                <li>
                     <a asp-controller="Devices" asp-action="Index">
                         <img src="/images/device.svg" class="icon" />
                         Devices
                     </a>
-
-
                 </li>
+
             </ul>
         </div>
 
