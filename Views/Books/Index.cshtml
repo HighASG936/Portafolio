@@ -5,37 +5,37 @@
 @model List<Book>
 
 
-    <style>
-        .grid-books
-        {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, 10%);
-            grid-template-rows: repeat(auto-fill, 25%);
-            grid-gap: 3%;
-            grid:fit-content(); 
-            width: 100%;
-            height: 100%;
-        }
+<style>
+    .grid-books
+    {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 10%);
+    grid-template-rows: repeat(auto-fill, 25%);
+    grid-gap: 3%;
+    grid:fit-content(); 
+    width: 100%;
+    height: 100%;
+    }
 
-        h1
-        {
-            text-align: center;
-        }
+    h1
+    {
+    text-align: center;
+    }
 
-        label
-        {
-            font-size: smaller;
-            align-items: center;
-            align-self: center;
-            align-content: center;
-        }
+    label
+    {
+    font-size: smaller;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    }
 
-        div, img
-        {
-            width: 100%;
-        }
+    div, img
+    {
+    width: 100%;
+    }
 
-    </style>
+</style>
 
 <div>
     <div>
@@ -54,6 +54,7 @@
                         <label>@items.Title.ToUpper()</label>
                     </div>
                 }
+             }
             </div>
         </div>
     </div>
