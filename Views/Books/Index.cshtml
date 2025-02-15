@@ -16,6 +16,20 @@
         height: 100%;
     }
 
+    .cover-img
+    {
+        width: 100%;
+        max-height: 200px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .cover-img:hover
+    {
+            transform: scale(1.4);
+            box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.9);
+    }
+
+
     h1
     {
         text-align: center;
@@ -29,7 +43,7 @@
         align-content: center;
     }
 
-    div, img
+    div
     {
         width: 100%;
     }
@@ -53,7 +67,7 @@
                         System.IO.Path.Combine(path, "default-cover.jpg") : System.IO.Path.Combine(path, item.Cover);
                     
                     <div>
-                        <img src="@imagen" alt="" style="width: 100%">
+                        <img src="@imagen" class="cover-img">
                         <label>@item.Title.ToUpper()</label>
                     </div>
                 }
