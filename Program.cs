@@ -1,8 +1,7 @@
 using Microsoft.Extensions.FileProviders;
 using Portafolio.Models;
-using Portafolio.Repository;
 using Portafolio.Notifications;
-using Portafolio.Controllers;
+using Portafolio.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
