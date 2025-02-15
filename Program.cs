@@ -1,10 +1,14 @@
 using Microsoft.Extensions.FileProviders;
 using Portafolio.Models;
 using Portafolio.Repository;
+using Portafolio.Notifications;
+using Portafolio.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IEmail, Email>();
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient();
