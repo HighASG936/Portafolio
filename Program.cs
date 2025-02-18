@@ -15,7 +15,6 @@ builder.Services.AddHttpClient();
 builder.Services.AddScoped<IRepository<Book>, BooksRepository>();
 builder.Services.AddScoped<IRepository<Device>, DevicesRepository>();
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

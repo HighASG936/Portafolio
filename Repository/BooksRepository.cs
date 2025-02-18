@@ -25,7 +25,7 @@ namespace Portafolio.Repository
 
         public async Task<Book?> GetById(int id)
         {
-            HttpResponseMessage response = await _httpClient.GetAsync($"{Uris.Devices}/{id}");
+            HttpResponseMessage response = await _httpClient.GetAsync($"{Uris.Books}/{id}");
             if (response.IsSuccessStatusCode)
             {
                 string json = await response.Content.ReadAsStringAsync();
