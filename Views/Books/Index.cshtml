@@ -65,12 +65,15 @@
                     var path = "/images";
                     var imagen = string.IsNullOrEmpty(item.Cover) ?
                         System.IO.Path.Combine(path, "default-cover.jpg") : System.IO.Path.Combine(path, item.Cover);
-                    
-                    <div>
-                        <img src="@imagen" class="cover-img">
-                        <label>@item.Title.ToUpper()</label>
-                    </div>
-                }
+
+                    <a asp-controller ="InfoBook" asp-action="Details" asp-route-id=@item.Id>
+                        <div>
+                            <img src="@imagen" class="cover-img">
+                            <label>@item.Title.ToUpper()</label>
+                        </div>
+                    </a>
+
+                }       
              }
             </div>
         </div>
