@@ -1,17 +1,50 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Book
+
 @{
+    ViewData["Title"] = Model.Title.ToUpper();
 }
 
-@model Book
 
-<div style="align-content: center">
+<style>
+    .container 
+    {
+        display: flex;
+        flex-direction: row; 
+        gap: 10px; 
+    }
+
+    .title
+    {
+        text-align: center;
+        padding-top: 2%;
+    }
+
+    .details
+    {
+        padding-left: 2%;
+        text-align: justify;
+        padding-top: 5%;    
+    }
+
+    .cover
+    {
+        height: 30%;
+        min-height: 300px;
+        max-height: 400px;
+    }
+
+</style>
+
+
+<div>
+    <h1 class="title">@Model.Title.ToUpper()</h1>
+    <h2 class="title">@Model.Author.ToUpper()</h2>
     @if (Model is not null)
     {
-        <h1>@Model.Title.ToUpper()</h1>
-        <h2>@Model.Author.ToUpper()</h2>
-        <img src="@Model.Cover" style="width: 30%"/>
-        <p>@Model.Description</p>
+        <div class="container">
+            <img src="@Model.Cover" class="cover" />
+            <p class="details">@Model.Description</p>
+        </div>
+
     }
 </div>
