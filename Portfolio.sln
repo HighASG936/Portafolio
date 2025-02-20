@@ -5,6 +5,8 @@ VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portafolio", "Portafolio.csproj", "{9827236F-43F9-4931-BC15-15E276046DAD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panaderia", "..\Panaderia\Panaderia.csproj", "{56FEE55C-9343-48DC-99E5-080EFD0E1CD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9827236F-43F9-4931-BC15-15E276046DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9827236F-43F9-4931-BC15-15E276046DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9827236F-43F9-4931-BC15-15E276046DAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56FEE55C-9343-48DC-99E5-080EFD0E1CD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56FEE55C-9343-48DC-99E5-080EFD0E1CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56FEE55C-9343-48DC-99E5-080EFD0E1CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56FEE55C-9343-48DC-99E5-080EFD0E1CD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
