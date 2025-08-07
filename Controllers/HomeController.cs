@@ -7,13 +7,6 @@ namespace Portafolio.Controllers
 {
     public class HomeController(IEmail email) : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
-
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
         private readonly IEmail _eMail = email;
 
         public IActionResult Index()
@@ -21,8 +14,8 @@ namespace Portafolio.Controllers
             if (!_eMail.IsSent)
             {
                 _eMail.Destiny = "jonico.dorico@gmail.com";
-                _eMail.Subject = "Portfolio visit";
-                _eMail.Message = $"You has a visitor to your portfolio";
+                _eMail.Subject = "Someone just visited your portfolio!";
+                _eMail.Message = "New visit detected on your portfolio.";
                 _eMail.Send();
             }
             return View();
