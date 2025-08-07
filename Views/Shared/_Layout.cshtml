@@ -26,11 +26,12 @@
             min-width:100px;
         }
 
-        .sidebar:hover
+        .main-div
         {
-        
+            margin-left: 15%;
+            width: 70%;
+            align-content: center;
         }
-
 
         .icon
         {
@@ -65,42 +66,52 @@
         {
             margin-bottom: 20%;
         }
+
+        .container 
+        {
+            display: flex;
+            flex-direction: row;
+        }
         
     </style>
 
     <div>
-        <div class="sidebar">
-            <ul>
-                <li>
-                    <a asp-controller="Home" asp-action="Index">
-                        <img src="/images/home.svg" class="icon" />
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a asp-controller="Books" asp-action="Index">
-                        <img src="/images/book.svg" class="icon" />
-                        Books
-                    </a>
-                </li>
-
-                <li>
-                    <a asp-controller="Devices" asp-action="Index">
-                        <img src="/images/device.svg" class="icon" />
-                        Devices
-                    </a>
-                </li>
-
-            </ul>
-        </div>
-
         <div class="container">
-            <main role="main">
-                @RenderBody()
-            </main>
+            <div class="sidebar">
+                <ul>
+                    <li>
+                        <a asp-controller="Home" asp-action="Index">
+                            <img src="/images/home.svg" class="icon" />
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Books" asp-action="Index">
+                            <img src="/images/book.svg" class="icon" />
+                            Books
+                        </a>
+                    </li>
+
+                    <li>
+                        <a asp-controller="Devices" asp-action="Index">
+                            <img src="/images/device.svg" class="icon" />
+                            Devices
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div>
+                <main role="main">
+                    @RenderBody()
+                </main>
+            </div>
         </div>
     </div>
+
+    @RenderSection("Content", required: false)
 
     <footer class="border-top footer text-muted" style="background-color:white">
         <div class="container">
