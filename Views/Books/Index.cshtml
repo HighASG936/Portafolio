@@ -54,32 +54,36 @@
 
 </style>
 
-<div style="background-color:antiquewhite; ">
-    <div>
-        @* <img class="banner" src="/images/lib_banner.jpg"> *@
-        <img class="banner" src="/images/lib_banner.webp">
-        <h1 class="title">Personal library</h1>
-    </div>
+@section Content
+{
+    <div class="main-div" style="background-color: slategray">
+        <div style="background-color:darkseagreen; ">
+            <div>
+                <img class="banner" src="/images/lib_banner.webp">
+                <h1 class="title">My Personal library</h1>
+            </div>
 
-    <div>
-        <div class="grid-books">
-            @if (Model is not null)
-            {
-                foreach (var item in Model)
-                {
-                    var path = "/images";
-                    var imagen = string.IsNullOrEmpty(item.Cover) ?
-                        System.IO.Path.Combine(path, "default-cover.jpg") : System.IO.Path.Combine(path, item.Cover);
+            <div>
+                <div class="grid-books">
+                    @if (Model is not null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            var path = "/images";
+                            var imagen = string.IsNullOrEmpty(item.Cover) ?
+                                System.IO.Path.Combine(path, "default-cover.jpg") : System.IO.Path.Combine(path, item.Cover);
 
-                    <a asp-controller ="InfoBook" asp-action="Details" asp-route-id=@item.Id>
-                        <div>
-                            <img src="@imagen" class="cover-img">
-                            <label>@item.Title.ToUpper()</label>
-                        </div>
-                    </a>
+                            <a asp-controller ="InfoBook" asp-action="Details" asp-route-id=@item.Id>
+                                <div>
+                                    <img src="@imagen" class="cover-img">
+                                    <label>@item.Title.ToUpper()</label>
+                                </div>
+                            </a>
 
-                }       
-             }
+                        }       
+                     }
+                </div>
+            </div>
         </div>
     </div>
-</div>
+}
