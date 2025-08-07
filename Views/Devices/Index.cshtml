@@ -4,27 +4,33 @@
 
 @model List<Device>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Part Number</th>
-            <th>Description</th>
-            <th>Quantity</th>
-            <th>Supplier</th>
-        </tr>
-    </thead>
-    <tbody style="width: 100%">
-        @if (Model != null)
-        {
-            foreach (var items in Model)
-            {
+
+@section Content
+{
+    <div class="main-div">
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td>@items.Part_Number.ToUpper()</td>                    
-                    <td>@items.Description.ToUpper()</td>
-                    <td>@items.Quantity</td>
-                    <td>@items.Supplier?.ToUpper()</td>
+                    <th>Part Number</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Supplier</th>
                 </tr>
-            }
-        }
-    </tbody>
-</table>
+            </thead>
+            <tbody style="width: 100%">
+                @if (Model != null)
+                {
+                    foreach (var items in Model)
+                    {
+                        <tr>
+                            <td>@items.Part_Number.ToUpper()</td>                    
+                            <td>@items.Description.ToUpper()</td>
+                            <td>@items.Quantity</td>
+                            <td>@items.Supplier?.ToUpper()</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}
