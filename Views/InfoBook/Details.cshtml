@@ -33,10 +33,18 @@
         max-height: 400px;
     }
 
+    .info-div
+    {
+        margin-top: 3%;
+        background-color: #FCFCF2;
+        padding: 5%;
+        border-radius: 1%;
+    }
+
 </style>
 
 
-<div>
+<div class="info-div">
     <h1 class="title">@Model.Title.ToUpper()</h1>
     <h2 class="title">@Model.Author.ToUpper()</h2>
     @if (Model is not null)
