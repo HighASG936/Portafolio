@@ -1,8 +1,6 @@
-﻿
-@{
-
+﻿@{
+    ViewData["Title"] = "Login";
 }
-
 
 <style>
 
@@ -54,3 +52,30 @@
         </div>
     </form>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#btnLogin").click(function (e) {
+            e.preventDefault(); // Evita que el botón recargue la página
+
+            var user = $("#user").val();
+            var password = $("#password").val();
+
+            $.ajax({
+                url: "/Account/Login",
+                type: "POST",
+                data: { User: user, Password: password },
+                success: function (response) {
+                    if (response.success) {
+                        window.location.href = "/Home/Index"; // Redirige si el login es correcto
+                    } else {
+                        $("#loginMessage").text(response.message); // Muestra error
+                    }
+                },
+                error: function () {
+                    $("#loginMessage").text("Error en la solicitud.");
+                }
+            });
+        });
+    });
+</script>

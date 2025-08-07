@@ -14,6 +14,7 @@ builder.Services.AddHttpClient();
 
 builder.Services.AddScoped<IRepository<Book>, BooksRepository>();
 builder.Services.AddScoped<IRepository<Device>, DevicesRepository>();
+builder.Services.AddScoped<IRepository<User>, UsersRepository>();
 
 var app = builder.Build();
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
+
 namespace Portafolio.Controllers
 {
     public class LoginController : Controller
@@ -8,5 +9,6 @@ namespace Portafolio.Controllers
         {
             return View();
         }
+
     }
 }
